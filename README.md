@@ -1,1 +1,2 @@
 # BTTF-Atelier-de-velo
+###BTTF. est un atelier de quartier qui répare et entretient des vélos. Il souhaite un site vitrine one-page présentant ses services, son atelier, ses horaires, ses coordonnées et un moyen de le contacter. Le client a fait réaliser une maquette (fichier fourni) et transmet ses visuels (logo, photo de l'atelier) dans un dossier img/. Le brief précise une exigence qui n'est pas visible sur la maquette statique et qu'il faudra anticiper dans la structure : l'intégration d'une carte de localisation.
