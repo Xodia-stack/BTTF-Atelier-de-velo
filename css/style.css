@@ -1,0 +1,46 @@
+body {
+    background-color: none; /* Couleur de fond  du body (corp)*/
+}
+
+.navbar {
+    display: flex;                /* les 3 enfants (logo, nav, bouton) s'alignent sur une ligne */
+    align-items: center;          /* les cale au centre verticalement, sur la même ligne médiane */
+    justify-content: space-between; /* écarte les 3 blocs : 1er à gauche, dernier à droite */
+    gap: 24px;                    /* espace minimum entre eux, même quand la place manque */
+    padding: 16px 24px;           /* air intérieur : 16px haut/bas, 24px gauche/droite */
+}
+
+.navbar img {
+    display: block;               /* une image est inline par défaut : ça laisse ~4px de vide dessous */
+}
+
+.navbar nav ul {
+    display: flex;                /* c'est ICI que les <li> s'alignent, pas sur le <nav> */
+    gap: 20px;                    /* espace entre chaque entrée du menu */
+    list-style: none;             /* supprime les puces de la liste */
+    margin: 0;                    /* annule la marge verticale que le navigateur met sur tout <ul> */
+    padding: 0;                   /* annule les ~40px de retrait réservés aux puces */
+}
+
+.navbar nav a {
+    display: block;               /* rend le lien "block" pour que le padding ci-dessous compte vraiment */
+    padding: 10px 14px;           /* agrandit la zone cliquable, plus confortable à viser */
+    text-decoration: none;        /* enlève le soulignement par défaut des liens */
+    color: inherit;               /* reprend la couleur du parent au lieu du bleu par défaut */
+}
+
+.navbar nav a:hover,               /* au survol de la souris... */
+.navbar nav a:focus-visible {      /* ...et à la sélection au clavier (Tab) : indispensable */
+    background: #f0f0f0;          /* fond gris clair pour signaler l'élément visé */
+    border-radius: 6px;           /* arrondit les coins de ce fond */
+}
+
+.bouton {
+    display: block;               /* même raison que plus haut : activer le padding sur un <a> */
+    padding: 10px 18px;           /* donne au lien sa forme de bouton */
+    background: #CAFC00;          /* fond sombre */
+    color: black;                 /* texte blanc, lisible sur ce fond */
+    text-decoration: none;        /* pas de soulignement */
+    border-radius: 6px;           /* coins arrondis */
+    white-space: nowrap;          /* empêche "Prendre rendez-vous" de passer sur deux lignes */
+}
