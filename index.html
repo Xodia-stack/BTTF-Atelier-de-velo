@@ -1,178 +1,307 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BTK — Atelier de réparation et vente de vélos</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BTTF. — Atelier de réparation et vente de vélos</title>
+    <meta
+      name="description"
+      content="BTTF. — Atelier de réparation et vente de vélos à Valparaiso-sur-Friot. Réparation express, entretien et pièces détachées."
+    />
+    <link rel="icon" href="img/logo-icone.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a href="#content">Aller au contenu principal</a>
 
-  <!-- ============ EN-TÊTE ============ -->
-  <header>
-    <img src="img/logo-bttf.svg" alt="Logo BTK" width="25" height="25">
-
-    <nav>
-      <ul>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#atelier">À propos</a></li>
-        <li><a href="#infos">Horaires & contact</a></li>
-      </ul>
-    </nav>
-
-    <a href="#contact">Prendre rendez-vous</a>
-  </header>
-
-  <main>
-
-    <!-- ============ HÉRO ============ -->
-    <section id="accueil">
+    <header>
       <div>
-        <p>Atelier de réparation et vente de vélos</p>
-        <h1>Bike to<br>the <em>future.</em></h1>
-        <p>
-          L'atelier qui remet votre vélo en selle : diagnostic, réparation
-          et entretien, avec des pièces choisies pour durer.
-        </p>
-        <p>
+        <a href="#top" aria-label="BTTF. — Retour à l'accueil">
+          <img
+            src="img/logo-bttf.svg"
+            alt="BTTF. — Bike to the future"
+            width="107"
+            height="25"
+          />
+        </a>
+        <nav aria-label="Navigation principale">
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#contact">Horaires &amp; contact</a></li>
+          </ul>
+        </nav>
+        <a href="#rdv">Prendre rendez-vous</a>
+      </div>
+    </header>
+
+    <main id="content">
+      <section aria-labelledby="hero-title">
+        <div>
+          <div>
+            <p>Atelier de réparation &amp; vente de vélos</p>
+            <h1 id="hero-title">Bike to<br />the <em>future.</em></h1>
+            <p>
+              L'atelier qui remet votre vélo en selle. Réparation express,
+              entretien et pièces détachées, à deux pas de chez vous.
+            </p>
+            <div>
+              <a href="#rdv">Prendre rendez-vous</a>
+              <a href="#services">Voir nos services</a>
+            </div>
+          </div>
+          <div aria-hidden="true">
+            <!-- possible de le remplacer par une balise img + lien vers fichier svg -->
+            <svg
+              viewBox="0 0 606.2505 430.2612"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              focusable="false"
+            >
+              <circle
+                cx="459.8305"
+                cy="283.8411"
+                r="128.4201"
+                stroke="#CAFC00"
+                stroke-width="18"
+              />
+              <circle
+                cx="146.4201"
+                cy="283.8411"
+                r="128.4201"
+                stroke="#CAFC00"
+                stroke-width="18"
+              />
+              <polyline
+                points="459.8305 283.8421 301.1503 9 459.8305 9"
+                stroke="#CAFC00"
+                stroke-width="18"
+                stroke-linejoin="round"
+              />
+              <polyline
+                points="345.114 85.1472 146.4201 283.8411 146.4201 85.1472"
+                stroke="#CAFC00"
+                stroke-width="18"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" aria-labelledby="services-title">
+        <div>
+          <p>Nos services</p>
+          <h2 id="services-title">
+            Tout pour remettre votre vélo sur la route
+          </h2>
+          <ul>
+            <li>
+              <img
+                src="img/icon-reparation.svg"
+                alt=""
+                width="18"
+                height="18"
+              />
+              <h3>Réparation express</h3>
+              <p>
+                Crevaison, freins, dérailleur&nbsp;: la plupart des réparations
+                sont faites en moins d'une heure.
+              </p>
+            </li>
+            <li>
+              <img src="img/icon-entretien.svg" alt="" width="18" height="18" />
+              <h3>Entretien</h3>
+              <p>
+                Révision complète, réglages et nettoyage pour garder votre vélo
+                comme au premier jour.
+              </p>
+            </li>
+            <li>
+              <img src="img/icon-vente.svg" alt="" width="18" height="18" />
+              <h3>Vente de pièces</h3>
+              <p>
+                Pièces détachées et accessoires sélectionnés, en stock ou
+                commandés sous 48h.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="about" aria-labelledby="about-title">
+        <div>
+          <div>
+            <p>L'atelier</p>
+            <h2 id="about-title">Un savoir-faire de quartier</h2>
+            <p>
+              Depuis 2019, BTTF. répare et entretient les vélos du quotidien
+              comme ceux des passionnés, à Valparaiso-sur-Friot. Conseil
+              personnalisé, pièces de qualité et un mécanicien qui vous connaît
+              par votre prénom.
+            </p>
+          </div>
+          <figure>
+            <img
+              src="img/atelier-velo-bg.jpg"
+              alt="Mécanicien réparant le cadre d'un vélo dans l'atelier BTTF."
+              width="1600"
+              height="1067"
+              loading="lazy"
+            />
+            <div aria-hidden="true">
+              <!-- possible de le remplacer par une balise img + lien vers fichier svg -->
+              <svg
+                viewBox="0 0 606.2505 430.2612"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                focusable="false"
+              >
+                <circle
+                  cx="459.8305"
+                  cy="283.8411"
+                  r="128.4201"
+                  stroke="#CAFC00"
+                  stroke-width="18"
+                />
+                <circle
+                  cx="146.4201"
+                  cy="283.8411"
+                  r="128.4201"
+                  stroke="#CAFC00"
+                  stroke-width="18"
+                />
+                <polyline
+                  points="459.8305 283.8421 301.1503 9 459.8305 9"
+                  stroke="#CAFC00"
+                  stroke-width="18"
+                  stroke-linejoin="round"
+                />
+                <polyline
+                  points="345.114 85.1472 146.4201 283.8411 146.4201 85.1472"
+                  stroke="#CAFC00"
+                  stroke-width="18"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Horaires et contact</h2>
+        <div>
+          <div>
+            <h3>Horaires d'ouverture</h3>
+            <dl>
+              <dt>Lundi</dt>
+              <dd>Fermé</dd>
+              <dt>Mardi — Vendredi</dt>
+              <dd>9h – 18h</dd>
+              <dt>Samedi</dt>
+              <dd>9h – 18h</dd>
+              <dt>Dimanche</dt>
+              <dd>Fermé</dd>
+            </dl>
+          </div>
+          <figure>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.7968529990053!2d2.4335613772526443!3d48.862084071332546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66d5d0ac4b287%3A0x92e6740958b13051!2s14%20Rue%20de%20la%20Beaune%2C%2093100%20Montreuil!5e0!3m2!1sfr!2sfr!4v1789129854922!5m2!1sfr!2sfr"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              title="Localisation de l'atelier BTTF sur Google Maps"
+            ></iframe>
+            <figcaption>
+              <address>
+                <p>14 rue de la Beaune, 93100 Montreuil</p>
+                <p>
+                  <a href="tel:+33123456789">01 23 45 67 89</a> —
+                  <a href="mailto:contact@bttf-velo.fr">contact@bttf-velo.fr</a>
+                </p>
+              </address>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="rdv" aria-labelledby="rdv-title">
+        <div>
+          <h2 id="rdv-title">Un souci sur votre vélo ? On s'en occupe.</h2>
           <a href="#contact">Prendre rendez-vous</a>
-          <a href="#services">Voir nos services</a>
-        </p>
-      </div>
+        </div>
+      </section>
 
-      <img src="img/logo-icone.svg" alt="" width="150" height="150">
-    </section>
+      <section id="contact-form" aria-labelledby="form-title">
+        <div>
+          <p>Une question ?</p>
+          <h2 id="form-title">Écrivez-nous</h2>
+          <form action="#" method="post">
+            <label for="nom">Nom</label>
+            <input
+              type="text"
+              id="nom"
+              name="nom"
+              placeholder="Votre nom"
+              autocomplete="name"
+              required
+            />
 
-    <!-- ============ SERVICES ============ -->
-    <section id="services">
-      <p>Nos services</p>
-      <h2>Tout pour remettre votre vélo sur la route</h2>
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="vous@exemple.fr"
+              autocomplete="email"
+              required
+            />
 
-      <ul>
-        <li>
-          <img src="img/icon-reparation.svg" alt="" width="25" height="25">
-          <h3>Réparation express</h3>
-          <p>
-            Crevaison, freins, dérailleur : la plupart des interventions
-            sont réalisées dans la journée.
-          </p>
-        </li>
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Votre message"
+              required
+            ></textarea>
 
-        <li>
-          <img src="img/icon-entretien.svg" alt="" width="25" height="25">
-          <h3>Entretien</h3>
-          <p>
-            Révision complète, réglages et nettoyage pour garder
-            un vélo fiable toute l'année.
-          </p>
-        </li>
+            <button type="submit">Envoyer</button>
+          </form>
+        </div>
+      </section>
+    </main>
 
-        <li>
-          <img src="img/icon-vente.svg" alt="" width="25" height="25">
-          <h3>Vente de pièces</h3>
-          <p>
-            Pneus, chambres à air, plaquettes, chaînes et accessoires
-            disponibles en boutique.
-          </p>
-        </li>
-      </ul>
-    </section>
-
-    <!-- ============ ATELIER (bandeau sombre) ============ -->
-    <section id="atelier">
+    <footer>
       <div>
-        <p>L'atelier</p>
-        <h2>Un savoir-faire de quartier</h2>
-        <p>
-          Depuis 2015, nous réparons des vélos de toutes sortes : urbains,
-          VTT, vélos à assistance électrique et vélos d'enfants. Chaque
-          réparation est expliquée et chiffrée avant intervention.
-        </p>
+        <a href="#top" aria-label="BTTF. — Retour à l'accueil">
+          <!-- possible de le code du fichier svg -->
+          <img
+            src="img/logo-bttf.svg"
+            alt="BTTF. — Bike to the future"
+            width="107"
+            height="25"
+          />
+        </a>
+        <nav aria-label="Navigation de pied de page">
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
       </div>
-
-      <figure>
-        <img src="img/atelier-velo-bg.jpg" alt="Vélo en cours de réparation dans l'atelier" width="150" height="150">
-      </figure>
-    </section>
-
-    <!-- ============ HORAIRES + ADRESSE ============ -->
-    <section id="infos">
-      <article>
-        <h2>Horaires d'ouverture</h2>
-        <dl>
-          <div>
-            <dt>Lundi</dt>
-            <dd>Fermé</dd>
-          </div>
-          <div>
-            <dt>Mardi – vendredi</dt>
-            <dd><time datetime="09:00">9h</time> – <time datetime="18:00">18h</time></dd>
-          </div>
-          <div>
-            <dt>Samedi</dt>
-            <dd><time datetime="10:00">10h</time> – <time datetime="18:00">18h</time></dd>
-          </div>
-          <div>
-            <dt>Dimanche</dt>
-            <dd>Fermé</dd>
-          </div>
-        </dl>
-      </article>
-
-      <article>
-        <h2>Nous trouver</h2>
-        <address>
-          14 rue de la beaune<br>
-          93110, Montrueil.
-        </address>
-        <p><a href="tel:+33100000000">01 00 00 00 00</a></p>
-      </article>
-    </section>
-
-    <!-- ============ APPEL À L'ACTION ============ -->
-    <section>
-      <h2>Un souci sur votre vélo ? On s'en occupe.</h2>
-      <a href="#contact">Prendre rendez-vous</a>
-    </section>
-
-    <!-- ============ CONTACT ============ -->
-    <section id="contact">
-      <p>Une question ?</p>
-      <h2>Écrivez-nous</h2>
-
-      <form action="/contact" method="post">
-        <div>
-          <label for="nom">Nom</label>
-          <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
-        </div>
-
-        <div>
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="vous@exemple.fr" required>
-        </div>
-
-        <div>
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" placeholder="Décrivez votre besoin" required></textarea>
-        </div>
-
-        <button type="submit">Envoyer</button>
-      </form>
-    </section>
-
-  </main>
-
-  <!-- ============ PIED DE PAGE ============ -->
-  <footer>
-    <img src="img/logo-bttf.svg" alt="Logo BTK" width="50" height="50">
-    <p>© 2026 BTK — Tous droits réservés</p>
-    <nav>
-      <ul>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#infos">Horaires</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </footer>
-
-</body>
+      <p>&copy; 2026 BTTF. — Bike to the future.</p>
+    </footer>
+  </body>
 </html>
