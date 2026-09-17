@@ -44,3 +44,115 @@ body {
     border-radius: 6px;           /* coins arrondis */
     white-space: nowrap;          /* empêche "Prendre rendez-vous" de passer sur deux lignes */
 }
+
+
+/* ---------- mise en page ---------- */
+
+.hero {
+  display: grid;                       /* dispose les enfants en grille */
+  grid-template-columns: 1fr 1fr;      /* deux colonnes de largeur égale */
+  align-items: center;                 /* centre verticalement texte et visuel l'un par rapport à l'autre */
+  gap: 4rem;                           /* espace entre les deux colonnes */
+  padding: 5rem 6rem;                  /* 5rem haut/bas, 6rem gauche/droite */
+  background: var(--bg);               /* le lavande */
+  font-family: 'Poppins', sans-serif;  /* héritée par tous les enfants */
+  color: var(--navy);
+}
+
+/* ---------- colonne texte ---------- */
+
+.bike > p:first-of-type {              /* le premier <p> : le sur-titre */
+  margin: 0 0 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;              /* indispensable en majuscules, sinon ça se tasse */
+  text-transform: uppercase;           /* capitales sans toucher au HTML */
+  color: var(--muted);
+}
+
+.bike > h1 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);  /* min 2.5rem, idéal 4% de la largeur, max 3.5rem */
+  font-weight: 700;
+  line-height: 1.1;                    /* interligne serré, les deux lignes se rapprochent */
+}
+
+.bike > h1 em {
+  font-style: italic;                  /* « future » en italique */
+}
+
+.bike > p:nth-of-type(2) {             /* le deuxième <p> : le paragraphe descriptif */
+  max-width: 34ch;                     /* largeur ≈ 34 caractères, force les retours à la ligne */
+  margin: 0 0 2rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* ---------- boutons ---------- */
+
+.bike > div {
+  display: flex;                       /* les deux liens côte à côte */
+  gap: 0.75rem;
+}
+
+.bike > div > a {
+  padding: 0.85rem 1.75rem;            /* donne au lien sa surface de bouton */
+  border-radius: 999px;                /* valeur énorme volontairement → forme pilule */
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;               /* retire le soulignement */
+  transition: opacity 0.2s;            /* adoucit le survol */
+}
+
+.bike > div > a:hover {
+  opacity: 0.85;
+}
+
+.bike > div > a:first-child {          /* bouton plein */
+  background: var(--lime);
+  color: var(--navy);
+}
+
+.bike > div > a:last-child {           /* bouton contour */
+  border: 2px solid var(--navy);
+  color: var(--navy);
+}
+
+/* ---------- colonne visuelle ---------- */
+
+.hero > div[aria-hidden="true"] {      /* le div du SVG, ciblé par son attribut */
+  display: grid;                       /* grille à une cellule… */
+  place-items: center;                 /* …dont le contenu est centré dans les deux axes */
+  justify-self: center;                /* centre le disque lui-même dans sa colonne */
+  width: 280px;                        /* le diamètre du disque */
+  aspect-ratio: 1;                     /* hauteur = largeur → carré parfait */
+  background: var(--navy);             /* le bleu nuit */
+  border-radius: 50%;                  /* carré + 50% = cercle */
+}
+
+.logo {
+  width: 55%;                          /* le vélo occupe 55% du diamètre */
+  height: auto;                        /* la hauteur suit le ratio du viewBox */
+}
+
+/* ---------- mobile ---------- */
+
+@media (max-width: 800px) {            /* en dessous de 800px de large */
+  .hero {
+    grid-template-columns: 1fr;        /* une colonne : le visuel passe sous le texte */
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+
+  .bike > p:nth-of-type(2) {
+    margin-inline: auto;               /* recentre le paragraphe limité à 34ch */
+  }
+
+  .bike > div {
+    justify-content: center;
+  }
+
+  .hero > div[aria-hidden="true"] {
+    width: 220px;                      /* disque plus petit sur mobile */
+  }
+}
