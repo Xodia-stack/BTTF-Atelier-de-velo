@@ -1,158 +1,198 @@
-body {
-    background-color: none; /* Couleur de fond  du body (corp)*/
+/* =========================================================
+   BTTF. — feuille de style principale
+   ========================================================= */
+
+/* =========================================================
+   1. VARIABLES — la charte du projet, déclarée une seule fois
+   ========================================================= */
+:root {
+    /* couleurs de marque */
+    --lime: #CAFC00;            /* le citron BTTF : accents et boutons */
+    --navy: #0C1031;            /* bleu nuit : texte et aplats sombres */
+    --lavande: #D9DCF7;         /* fond du hero */
+
+    /* couleurs de service */
+    --bg: var(--lavande);       /* une variable peut en référencer une autre */
+    --muted: #5A5F7D;           /* texte secondaire : navy désaturé */
+    --gris-clair: #F0F0F0;      /* fond de survol dans le menu */
+    --blanc: #FFFFFF;           /* fond de page et texte sur les aplats sombres */
+
+    /* formes */
+    --rayon: 6px;               /* arrondi standard */
+    --pilule: 999px;            /* arrondi maximal → forme pilule */
 }
 
+/* =========================================================
+   2. BASE
+   ========================================================= */
+body {
+    margin: 0;                              /* annule les ~8px de marge par défaut */
+    background-color: var(--blanc);
+    font-family: 'Montserrat', sans-serif;  /* la police chargée dans le <head> */
+    color: var(--navy);                     /* héritée par toute la page */
+}
+
+/* =========================================================
+   3. NAVBAR
+   ========================================================= */
 .navbar {
-    display: flex;                /* les 3 enfants (logo, nav, bouton) s'alignent sur une ligne */
-    align-items: center;          /* les cale au centre verticalement, sur la même ligne médiane */
+    display: flex;                  /* les 3 enfants (logo, nav, bouton) s'alignent sur une ligne */
+    align-items: center;            /* les cale au centre verticalement */
     justify-content: space-between; /* écarte les 3 blocs : 1er à gauche, dernier à droite */
-    gap: 24px;                    /* espace minimum entre eux, même quand la place manque */
-    padding: 16px 24px;           /* air intérieur : 16px haut/bas, 24px gauche/droite */
+    gap: 24px;                      /* espace minimum entre eux */
+    padding: 16px 24px;
 }
 
 .navbar img {
-    display: block;               /* une image est inline par défaut : ça laisse ~4px de vide dessous */
+    display: block;                 /* une image est inline par défaut : ~4px de vide dessous */
 }
 
 .navbar nav ul {
-    display: flex;                /* c'est ICI que les <li> s'alignent, pas sur le <nav> */
-    gap: 20px;                    /* espace entre chaque entrée du menu */
-    list-style: none;             /* supprime les puces de la liste */
-    margin: 0;                    /* annule la marge verticale que le navigateur met sur tout <ul> */
-    padding: 0;                   /* annule les ~40px de retrait réservés aux puces */
+    display: flex;                  /* c'est ICI que les <li> s'alignent, pas sur le <nav> */
+    gap: 20px;                      /* espace entre les liens */
+    list-style: none;               /* supprime les puces */
+    margin: 0;                      /* annule les ~16px de marge par défaut */
+    padding: 0;                     /* annule les ~40px de retrait réservés aux puces */
 }
 
 .navbar nav a {
-    display: block;               /* rend le lien "block" pour que le padding ci-dessous compte vraiment */
-    padding: 10px 14px;           /* agrandit la zone cliquable, plus confortable à viser */
-    text-decoration: none;        /* enlève le soulignement par défaut des liens */
-    color: inherit;               /* reprend la couleur du parent au lieu du bleu par défaut */
+    display: block;                 /* pour que le padding ci-dessous compte vraiment */
+    padding: 10px 14px;             /* agrandit la zone cliquable */
+    text-decoration: none;          /* supprime le soulignement par défaut */
+    color: inherit;                 /* hérite de var(--navy) posé sur le body */
 }
 
-.navbar nav a:hover,               /* au survol de la souris... */
-.navbar nav a:focus-visible {      /* ...et à la sélection au clavier (Tab) : indispensable */
-    background: #f0f0f0;          /* fond gris clair pour signaler l'élément visé */
-    border-radius: 6px;           /* arrondit les coins de ce fond */
+.navbar nav a:hover,                        /* au survol... */
+.navbar nav a:focus-visible {               /* ...et à la sélection au clavier : indispensable */
+    background-color: var(--gris-clair);
+    border-radius: var(--rayon);
 }
 
-.bouton {
-    display: block;               /* même raison que plus haut : activer le padding sur un <a> */
-    padding: 10px 18px;           /* donne au lien sa forme de bouton */
-    background: #CAFC00;          /* fond sombre */
-    color: black;                 /* texte blanc, lisible sur ce fond */
-    text-decoration: none;        /* pas de soulignement */
-    border-radius: 6px;           /* coins arrondis */
-    white-space: nowrap;          /* empêche "Prendre rendez-vous" de passer sur deux lignes */
+/* =========================================================
+   4. BOUTONS — définis une seule fois, valables partout
+   ---------------------------------------------------------
+   inline-block et non block : un lien en block prendrait
+   toute la largeur dès qu'il n'est pas dans un conteneur flex.
+   ========================================================= */
+.rdv,
+.nos-services {
+    display: inline-block;          /* reste compact quel que soit le parent */
+    padding: 0.85rem 1.75rem;       /* donne au lien sa surface de bouton */
+    border: 2px solid transparent;  /* réserve la place de la bordure : les 2 boutons gardent la même hauteur */
+    border-radius: var(--pilule);   /* remplacer par var(--rayon) pour des angles moins ronds */
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;            /* garde "Prendre rendez-vous" sur une ligne */
+    transition: opacity 0.2s;       /* adoucit le survol */
 }
 
+.rdv:hover,
+.rdv:focus-visible,
+.nos-services:hover,
+.nos-services:focus-visible {
+    opacity: 0.85;
+}
 
-/* ---------- mise en page ---------- */
+/* Les deux variantes : seules les couleurs changent.
+   Elles doivent rester APRÈS la règle commune — à spécificité
+   égale, c'est la dernière règle écrite qui l'emporte. */
+.rdv {
+    background-color: var(--lime);  /* bouton plein */
+    color: var(--navy);
+}
 
+.nos-services {
+    border-color: var(--navy);      /* bouton contour : la bordure existe déjà, on ne change que sa couleur */
+    color: var(--navy);
+}
+
+/* =========================================================
+   5. HERO
+   ========================================================= */
 .hero {
-  display: grid;                       /* dispose les enfants en grille */
-  grid-template-columns: 1fr 1fr;      /* deux colonnes de largeur égale */
-  align-items: center;                 /* centre verticalement texte et visuel l'un par rapport à l'autre */
-  gap: 4rem;                           /* espace entre les deux colonnes */
-  padding: 5rem 6rem;                  /* 5rem haut/bas, 6rem gauche/droite */
-  background: var(--bg);               /* le lavande */
-  font-family: 'Poppins', sans-serif;  /* héritée par tous les enfants */
-  color: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* deux colonnes de largeur égale */
+    align-items: center;            /* centre texte et visuel l'un par rapport à l'autre */
+    gap: 4rem;                      /* espace entre les deux colonnes */
+    padding: 5rem 6rem;             /* espace autour du contenu */
+    background-color: var(--bg);
 }
 
 /* ---------- colonne texte ---------- */
 
-.bike > p:first-of-type {              /* le premier <p> : le sur-titre */
-  margin: 0 0 1rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;              /* indispensable en majuscules, sinon ça se tasse */
-  text-transform: uppercase;           /* capitales sans toucher au HTML */
-  color: var(--muted);
+.bike > p:first-of-type {           /* le premier <p> : le sur-titre */
+    margin: 0 0 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;         /* indispensable en majuscules, sinon ça se tasse */
+    text-transform: uppercase;      /* capitales sans toucher au HTML */
+    color: var(--muted);
 }
 
 .bike > h1 {
-  margin: 0 0 1.5rem;
-  font-size: clamp(2.5rem, 4vw, 3.5rem);  /* min 2.5rem, idéal 4% de la largeur, max 3.5rem */
-  font-weight: 700;
-  line-height: 1.1;                    /* interligne serré, les deux lignes se rapprochent */
+    margin: 0 0 1.5rem;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);  /* min 2.5rem, idéal 4vw, max 3.5rem */
+    font-weight: 700;
+    line-height: 1.1;                       /* interligne serré : les deux lignes se rapprochent */
 }
 
 .bike > h1 em {
-  font-style: italic;                  /* « future » en italique */
+    font-style: italic;             /* « future » en italique */
 }
 
-.bike > p:nth-of-type(2) {             /* le deuxième <p> : le paragraphe descriptif */
-  max-width: 34ch;                     /* largeur ≈ 34 caractères, force les retours à la ligne */
-  margin: 0 0 2rem;
-  line-height: 1.7;
-  color: var(--muted);
+.bike > p:nth-of-type(2) {          /* le deuxième <p> : le paragraphe descriptif */
+    max-width: 34ch;                /* force les retours à la ligne */
+    margin: 0 0 2rem;
+    line-height: 1.7;               /* plus aéré, pour le confort de lecture */
+    color: var(--muted);
 }
 
-/* ---------- boutons ---------- */
+/* ---------- groupe de boutons du hero ---------- */
+/* Mise en page uniquement : l'apparence des boutons vient
+   de la section 4, jamais d'ici. */
 
 .bike > div {
-  display: flex;                       /* les deux liens côte à côte */
-  gap: 0.75rem;
-}
-
-.bike > div > a {
-  padding: 0.85rem 1.75rem;            /* donne au lien sa surface de bouton */
-  border-radius: 999px;                /* valeur énorme volontairement → forme pilule */
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;               /* retire le soulignement */
-  transition: opacity 0.2s;            /* adoucit le survol */
-}
-
-.bike > div > a:hover {
-  opacity: 0.85;
-}
-
-.bike > div > a:first-child {          /* bouton plein */
-  background: var(--lime);
-  color: var(--navy);
-}
-
-.bike > div > a:last-child {           /* bouton contour */
-  border: 2px solid var(--navy);
-  color: var(--navy);
+    display: flex;                  /* les deux boutons côte à côte */
+    gap: 0.75rem;
 }
 
 /* ---------- colonne visuelle ---------- */
 
-.hero > div[aria-hidden="true"] {      /* le div du SVG, ciblé par son attribut */
-  display: grid;                       /* grille à une cellule… */
-  place-items: center;                 /* …dont le contenu est centré dans les deux axes */
-  justify-self: center;                /* centre le disque lui-même dans sa colonne */
-  width: 280px;                        /* le diamètre du disque */
-  aspect-ratio: 1;                     /* hauteur = largeur → carré parfait */
-  background: var(--navy);             /* le bleu nuit */
-  border-radius: 50%;                  /* carré + 50% = cercle */
+.hero > div[aria-hidden="true"] {   /* le div du SVG, ciblé par son attribut */
+    display: grid;
+    place-items: center;            /* contenu centré dans les deux axes */
+    justify-self: center;           /* centre le disque dans sa colonne */
+    width: 280px;
+    aspect-ratio: 1;                /* hauteur = largeur → carré parfait */
+    background-color: var(--navy);
+    border-radius: 50%;             /* carré + 50% = cercle */
 }
 
 .logo {
-  width: 55%;                          /* le vélo occupe 55% du diamètre */
-  height: auto;                        /* la hauteur suit le ratio du viewBox */
+    width: 55%;                     /* le vélo occupe 55% du diamètre du disque */
+    height: auto;                   /* la hauteur suit le ratio du viewBox */
 }
 
-/* ---------- mobile ---------- */
+/* =========================================================
+   6. MOBILE
+   ========================================================= */
+@media (max-width: 800px) {
+    .hero {
+        grid-template-columns: 1fr; /* une colonne : le visuel passe sous le texte */
+        padding: 3rem 1.5rem;
+        text-align: center;
+    }
 
-@media (max-width: 800px) {            /* en dessous de 800px de large */
-  .hero {
-    grid-template-columns: 1fr;        /* une colonne : le visuel passe sous le texte */
-    padding: 3rem 1.5rem;
-    text-align: center;
-  }
+    .bike > p:nth-of-type(2) {
+        margin-inline: auto;        /* recentre le paragraphe limité à 34ch */
+    }
 
-  .bike > p:nth-of-type(2) {
-    margin-inline: auto;               /* recentre le paragraphe limité à 34ch */
-  }
+    .bike > div {
+        justify-content: center;    /* centre les deux boutons */
+    }
 
-  .bike > div {
-    justify-content: center;
-  }
-
-  .hero > div[aria-hidden="true"] {
-    width: 220px;                      /* disque plus petit sur mobile */
-  }
+    .hero > div[aria-hidden="true"] {
+        width: 220px;               /* disque plus petit sur mobile */
+    }
 }
