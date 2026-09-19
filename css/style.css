@@ -12,7 +12,7 @@
     --lavande: #D9DCF7;         /* fond du hero */
 
     /* couleurs de service */
-    --bg: var(--lavande);       /* une variable peut en référencer une autre */
+    --bg: var(--lavande);         /* une variable peut en référencer une autre */
     --muted: #5A5F7D;           /* texte secondaire : navy désaturé */
     --gris-clair: #F0F0F0;      /* fond de survol dans le menu */
     --blanc: #FFFFFF;           /* fond de page et texte sur les aplats sombres */
@@ -20,6 +20,9 @@
     /* formes */
     --rayon: 6px;               /* arrondi standard */
     --pilule: 999px;            /* arrondi maximal → forme pilule */
+
+    /* bordure*/
+     --bordure: #ECEEF5;         /* bordure très claire des cartes */
 }
 
 /* =========================================================
@@ -27,7 +30,7 @@
    ========================================================= */
 body {
     margin: 0;                              /* annule les ~8px de marge par défaut */
-    background-color: var(--blanc);
+    background-color: var(--blanc);         /* couleur de fond de page */
     font-family: 'Montserrat', sans-serif;  /* la police chargée dans le <head> */
     color: var(--navy);                     /* héritée par toute la page */
 }
@@ -40,7 +43,7 @@ body {
     align-items: center;            /* les cale au centre verticalement */
     justify-content: space-between; /* écarte les 3 blocs : 1er à gauche, dernier à droite */
     gap: 24px;                      /* espace minimum entre eux */
-    padding: 16px 24px;
+    padding: 16px 24px;             /* espace autour du contenu : 16px en haut et en bas, 24px à gauche et à droite */
 }
 
 .navbar img {
@@ -64,8 +67,8 @@ body {
 
 .navbar nav a:hover,                        /* au survol... */
 .navbar nav a:focus-visible {               /* ...et à la sélection au clavier : indispensable */
-    background-color: var(--gris-clair);
-    border-radius: var(--rayon);
+    background-color: var(--gris-clair);    /* fond gris clair */
+    border-radius: var(--rayon);            /* arrondi standard, pas pilule */
 }
 
 /* =========================================================
@@ -80,9 +83,9 @@ body {
     padding: 0.85rem 1.75rem;       /* donne au lien sa surface de bouton */
     border: 2px solid transparent;  /* réserve la place de la bordure : les 2 boutons gardent la même hauteur */
     border-radius: var(--pilule);   /* remplacer par var(--rayon) pour des angles moins ronds */
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-decoration: none;
+    font-size: 0.9rem;              /* légèrement plus petit que le texte normal */
+    font-weight: 600;               /* rend le texte plus lisible */
+    text-decoration: none;          /* supprime le soulignement par défaut */
     white-space: nowrap;            /* garde "Prendre rendez-vous" sur une ligne */
     transition: opacity 0.2s;       /* adoucit le survol */
 }
@@ -104,7 +107,7 @@ body {
 
 .nos-services {
     border-color: var(--navy);      /* bouton contour : la bordure existe déjà, on ne change que sa couleur */
-    color: var(--navy);
+    color: var(--navy);             /* le texte est de la même couleur que la bordure */
 }
 
 /* =========================================================
@@ -116,24 +119,24 @@ body {
     align-items: center;            /* centre texte et visuel l'un par rapport à l'autre */
     gap: 4rem;                      /* espace entre les deux colonnes */
     padding: 5rem 6rem;             /* espace autour du contenu */
-    background-color: var(--bg);
+    background-color: var(--bg);    /* couleur de fond du hero */
 }
 
 /* ---------- colonne texte ---------- */
 
 .bike > p:first-of-type {           /* le premier <p> : le sur-titre */
-    margin: 0 0 1rem;
-    font-size: 0.75rem;
-    font-weight: 600;
+    margin: 0 0 1rem;               /* espace sous le sur-titre */
+    font-size: 0.75rem;             /* plus petit que le texte normal */
+    font-weight: 600;               /* un peu plus gras que le texte normal */
     letter-spacing: 0.12em;         /* indispensable en majuscules, sinon ça se tasse */
     text-transform: uppercase;      /* capitales sans toucher au HTML */
-    color: var(--muted);
+    color: var(--muted);            /* texte secondaire : navy désaturé */
 }
 
 .bike > h1 {
     margin: 0 0 1.5rem;
     font-size: clamp(2.5rem, 4vw, 3.5rem);  /* min 2.5rem, idéal 4vw, max 3.5rem */
-    font-weight: 700;
+    font-weight: 700;                       /* plus gras que le texte normal */
     line-height: 1.1;                       /* interligne serré : les deux lignes se rapprochent */
 }
 
@@ -143,7 +146,7 @@ body {
 
 .bike > p:nth-of-type(2) {          /* le deuxième <p> : le paragraphe descriptif */
     max-width: 34ch;                /* force les retours à la ligne */
-    margin: 0 0 2rem;
+    margin: 0 0 2rem;               /* espace sous le paragraphe */
     line-height: 1.7;               /* plus aéré, pour le confort de lecture */
     color: var(--muted);
 }
@@ -160,12 +163,12 @@ body {
 /* ---------- colonne visuelle ---------- */
 
 .hero > div[aria-hidden="true"] {   /* le div du SVG, ciblé par son attribut */
-    display: grid;
+    display: grid;                  /* transforme le div en conteneur de grille */
     place-items: center;            /* contenu centré dans les deux axes */
     justify-self: center;           /* centre le disque dans sa colonne */
-    width: 280px;
+    width: 280px;                   /* largeur fixe du disque */
     aspect-ratio: 1;                /* hauteur = largeur → carré parfait */
-    background-color: var(--navy);
+    background-color: var(--navy);  /* couleur de fond du disque */
     border-radius: 50%;             /* carré + 50% = cercle */
 }
 
@@ -180,8 +183,8 @@ body {
 @media (max-width: 800px) {
     .hero {
         grid-template-columns: 1fr; /* une colonne : le visuel passe sous le texte */
-        padding: 3rem 1.5rem;
-        text-align: center;
+        padding: 3rem 1.5rem;       /* moins d'espace autour du contenu */
+        text-align: center;         /* centre le texte et les boutons */
     }
 
     .bike > p:nth-of-type(2) {
@@ -195,4 +198,70 @@ body {
     .hero > div[aria-hidden="true"] {
         width: 220px;               /* disque plus petit sur mobile */
     }
+}
+
+/* =========================================================
+   7. SERVICES
+   ========================================================= */
+#services > div {
+    max-width: 1100px;              /* limite la largeur sur grand écran */
+    margin: 0 auto;                 /* centre le bloc dans la page */
+    padding: 5rem 1.5rem;           /* espace autour du contenu */
+}
+
+#services > div > p {              /* le sur-titre, et pas les <p> des cartes (eux sont dans les <li>) */
+    margin: 0 0 0.75rem;           /* espace sous le sur-titre */
+    font-size: 0.75rem;            /* plus petit que le texte normal */
+    font-weight: 600;              /* un peu plus gras que le texte normal */
+    letter-spacing: 0.12em;        /* même traitement que le sur-titre du hero */
+    text-transform: uppercase;     /* capitales sans toucher au HTML */
+    color: var(--muted);           /* texte secondaire : navy désaturé */
+}
+
+#services h2 {
+    max-width: 22ch;                /* force le retour à la ligne comme sur la maquette */
+    margin: 0 0 3rem;                           /* espace sous le titre */
+    font-size: clamp(1.75rem, 3vw, 2.25rem);    /* min 1.75rem, idéal 3vw, max 2.25rem */
+    font-weight: 700;                           /* plus gras que le texte normal */
+    line-height: 1.25;                          /* interligne serré : les deux lignes se rapprochent */
+}
+
+/* ---------- grille des cartes ---------- */
+
+#services ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* trois colonnes de largeur égale */
+    gap: 1.25rem;                   /* espace entre les cartes */
+    list-style: none;               /* supprime les puces */
+    margin: 0;                      /* annule la marge par défaut */
+    padding: 0;                     /* annule le retrait réservé aux puces */
+}
+
+#services li {
+    padding: 1.75rem 1.5rem;            /* espace autour du contenu de la carte */
+    background-color: var(--blanc);     /* couleur de fond des cartes */
+    border: 1px solid var(--bordure);   /* épaisseur + style + couleur, sinon rien ne s'affiche */
+    border-radius: 12px;                /* un peu plus rond que var(--rayon), comme la maquette */
+}
+
+#services li img {
+    display: block;                     /* supprime le vide sous l'image inline */
+    box-sizing: content-box;            /* le padding s'ajoute aux 18px de l'icône */
+    padding: 11px;                      /* 18 + 2×11 = pastille de 40px */
+    margin-bottom: 1.5rem;              /* espace sous l'icône */
+    background-color: var(--lavande);   /* couleur de fond de la pastille */
+    border-radius: 50%;                 /* carré + 50% = cercle */
+}
+
+#services h3 {
+    margin: 0 0 0.6rem;                 /* espace sous le titre de la carte */
+    font-size: 1.05rem;                 /* légèrement plus petit que le texte normal */
+    font-weight: 700;                   /* plus gras que le texte normal */
+}
+
+#services li p {
+    margin: 0;                      /*annule la marge par défaut */
+    font-size: 0.875rem;            /* légèrement plus petit que le texte normal */
+    line-height: 1.6;               /* interligne plus aéré pour le confort de lecture */
+    color: var(--muted);            /* texte secondaire */
 }
